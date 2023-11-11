@@ -3,19 +3,19 @@
 ## Installation
 
 This Flatpak is available on
-[Flathub](https://flathub.org/apps/details/org.godotengine.Godot).
+[Flathub](https://flathub.org/apps/details/org.godotengine.GodotSharp).
 After following the [Flatpak setup guide](https://flatpak.org/setup/),
 you can install it by entering the following command in a terminal:
 
 ```bash
-flatpak install --user flathub org.godotengine.Godot -y
+flatpak install --user flathub org.godotengine.GodotSharp -y
 ```
 
 Once the Flatpak is installed, you can run Godot using your desktop environment's
 application launcher.
 
 **Looking to package a Godot project as a Flatpak ?**
-See [flathub/org.godotengine.godot.BaseApp](https://github.com/flathub/org.godotengine.godot.BaseApp).
+For packaging a Godot project that _doesn't_ use C#, see [flathub/org.godotengine.godot.BaseApp](https://github.com/flathub/org.godotengine.godot.BaseApp). A specific BaseApp for GodotSharp does not exist yet, but it could be set up in the future. 
 
 ## Updating
 
@@ -28,7 +28,7 @@ flatpak update
 
 ## Using Blender
 
-This version of Godot is built with special [permissions](https://github.com/flathub/org.godotengine.Godot/blob/394f81c3310b82f5069ea917bb21f49888f818c6/org.godotengine.Godot.yaml#L46) to be able to run commands on the host system outside of the sandbox via [flatpak-spawn](https://docs.flatpak.org/en/latest/flatpak-command-reference.html#flatpak-spawn). This is done by prefixing the command with `flatpak-spawn --host`. For example, if you want to run `gnome-terminal` on the host system outside of the sandbox, you can do so by running `flatpak-spawn --host gnome-terminal`.
+This version of Godot is built with special [permissions](https://github.com/flathub/org.godotengine.GodotSharp/blob/1ffad4129f41c8ad669261a5dc7fe8a2c5aea270/org.godotengine.GodotSharp.yaml#L64) to be able to run commands on the host system outside of the sandbox via [flatpak-spawn](https://docs.flatpak.org/en/latest/flatpak-command-reference.html#flatpak-spawn). This is done by prefixing the command with `flatpak-spawn --host`. For example, if you want to run `gnome-terminal` on the host system outside of the sandbox, you can do so by running `flatpak-spawn --host gnome-terminal`.
 
 Godot expects the Blender executable to be named `blender` (lowercase), so a script exactly named `blender` that executes Blender via `flatpak-spawn --host` should be created. Below are two [Bash](https://www.gnu.org/software/bash/) scripts which may need to be modified depending on your [shell](https://en.wikipedia.org/wiki/Shell_(computing)) and how Blender is installed.
 
@@ -52,7 +52,7 @@ Make sure your script is executable using `chmod +x blender`. Use the directory 
 
 ## Using an external script editor
 
-This version of Godot is built with special [permissions](https://github.com/flathub/org.godotengine.Godot/blob/394f81c3310b82f5069ea917bb21f49888f818c6/org.godotengine.Godot.yaml#L46) to be able to run commands on the host system outside of the sandbox via [flatpak-spawn](https://docs.flatpak.org/en/latest/flatpak-command-reference.html#flatpak-spawn). This is done by prefixing the command with `flatpak-spawn --host`. For example, if you want to run `gnome-terminal` on the host system outside of the sandbox, you can do so by running `flatpak-spawn --host gnome-terminal`.
+This version of Godot is built with special [permissions](https://github.com/flathub/org.godotengine.GodotSharp/blob/1ffad4129f41c8ad669261a5dc7fe8a2c5aea270/org.godotengine.GodotSharp.yaml#L64) to be able to run commands on the host system outside of the sandbox via [flatpak-spawn](https://docs.flatpak.org/en/latest/flatpak-command-reference.html#flatpak-spawn). This is done by prefixing the command with `flatpak-spawn --host`. For example, if you want to run `gnome-terminal` on the host system outside of the sandbox, you can do so by running `flatpak-spawn --host gnome-terminal`.
 
 To spawn an external editor in Godot, all command line arguments must be split from the commands path in the [external editor preferences](https://docs.godotengine.org/en/latest/getting_started/editor/external_editor.html) and because the command needs to be prefixed with `"flatpak-spawn --host"`, the **Exec Path** is replaced by `flatpak-spawn` and the **Exec Flags** are prefixed by `--host [command path]`.
 
@@ -85,10 +85,10 @@ Install Git, follow the
 then enter the following commands in a terminal:
 
 ```bash
-git clone --recursive https://github.com/flathub/org.godotengine.Godot.git
-cd org.godotengine.Godot/
+git clone --recursive https://github.com/flathub/org.godotengine.GodotSharp.git
+cd org.godotengine.GodotSharp/
 flatpak install --user flathub org.freedesktop.Sdk//22.08 org.freedesktop.Sdk.Extension.dotnet7//22.08 org.freedesktop.Sdk.Extension.openjdk11//22.08 -y
-flatpak-builder --force-clean --install --user -y builddir org.godotengine.Godot.yaml
+flatpak-builder --force-clean --install --user -y builddir org.godotengine.GodotSharp.yaml
 ```
 
 If all goes well, the Flatpak will be installed after building. You can then
@@ -109,4 +109,4 @@ If `csproj` files that aren't included within the script include new packages, t
 
 ### Double Precision
 
-To compile Godot 4 with double precision, `org.godotengine.Godot.yaml` needs to be modified to include the appropriate flags. Under `Build Commands`, change all instances of `precision=single` to `precision=double`.
+To compile Godot 4 with double precision, `org.godotengine.GodotSharp.yaml` needs to be modified to include the appropriate flags. Under `Build Commands`, change all instances of `precision=single` to `precision=double`.

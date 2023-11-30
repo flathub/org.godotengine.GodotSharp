@@ -76,7 +76,7 @@ After the first C# script is created, it is necessary to click `build` within Go
 
 ## Limitations
 
-- The Mono external editor support does not work.
+- C#/.NET external editor support does not work out-of-the-box, though this is currently being discussed and worked on [here](https://github.com/flathub/org.godotengine.GodotSharp/issues/2).
 
 ## Building from source
 

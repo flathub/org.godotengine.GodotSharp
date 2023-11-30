@@ -92,38 +92,38 @@
     },
     {
         "type": "file",
-        "url": "https://api.nuget.org/v3-flatcontainer/jetbrains.rider.pathlocator/1.0.1/jetbrains.rider.pathlocator.1.0.1.nupkg",
-        "sha512": "d3eebece09873a1feb843be41f2794666c65e8ddeac4ebff883181d1a258e5309e391e7c28ffc4b2ead0f55ad06d9c7f18ea27f688393b48b44a0fd68b6bb8b9",
+        "url": "https://api.nuget.org/v3-flatcontainer/jetbrains.rider.pathlocator/1.0.4/jetbrains.rider.pathlocator.1.0.4.nupkg",
+        "sha512": "3cd97e2e72f6f34666d64893a91b15746b72c5032e53196c0390ebc5646b8792e2325e7818d0a7e2d54adcf8793b49c9e5068a4f0fed53c6272d8e477529e868",
         "dest": "nuget-sources",
-        "dest-filename": "jetbrains.rider.pathlocator.1.0.1.nupkg"
+        "dest-filename": "jetbrains.rider.pathlocator.1.0.4.nupkg"
     },
     {
         "type": "file",
-        "url": "https://api.nuget.org/v3-flatcontainer/jetbrains.rider.pathlocator/1.0.1/jetbrains.rider.pathlocator.1.0.1.nupkg",
-        "sha512": "d3eebece09873a1feb843be41f2794666c65e8ddeac4ebff883181d1a258e5309e391e7c28ffc4b2ead0f55ad06d9c7f18ea27f688393b48b44a0fd68b6bb8b9",
+        "url": "https://api.nuget.org/v3-flatcontainer/jetbrains.rider.pathlocator/1.0.4/jetbrains.rider.pathlocator.1.0.4.nupkg",
+        "sha512": "3cd97e2e72f6f34666d64893a91b15746b72c5032e53196c0390ebc5646b8792e2325e7818d0a7e2d54adcf8793b49c9e5068a4f0fed53c6272d8e477529e868",
         "dest": "nuget-sources",
-        "dest-filename": "jetbrains.rider.pathlocator.1.0.1.nupkg"
+        "dest-filename": "jetbrains.rider.pathlocator.1.0.4.nupkg"
     },
     {
         "type": "file",
-        "url": "https://api.nuget.org/v3-flatcontainer/jetbrains.rider.pathlocator/1.0.1/jetbrains.rider.pathlocator.1.0.1.nupkg",
-        "sha512": "d3eebece09873a1feb843be41f2794666c65e8ddeac4ebff883181d1a258e5309e391e7c28ffc4b2ead0f55ad06d9c7f18ea27f688393b48b44a0fd68b6bb8b9",
+        "url": "https://api.nuget.org/v3-flatcontainer/jetbrains.rider.pathlocator/1.0.4/jetbrains.rider.pathlocator.1.0.4.nupkg",
+        "sha512": "3cd97e2e72f6f34666d64893a91b15746b72c5032e53196c0390ebc5646b8792e2325e7818d0a7e2d54adcf8793b49c9e5068a4f0fed53c6272d8e477529e868",
         "dest": "nuget-sources",
-        "dest-filename": "jetbrains.rider.pathlocator.1.0.1.nupkg"
+        "dest-filename": "jetbrains.rider.pathlocator.1.0.4.nupkg"
     },
     {
         "type": "file",
-        "url": "https://api.nuget.org/v3-flatcontainer/jetbrains.rider.pathlocator/1.0.1/jetbrains.rider.pathlocator.1.0.1.nupkg",
-        "sha512": "d3eebece09873a1feb843be41f2794666c65e8ddeac4ebff883181d1a258e5309e391e7c28ffc4b2ead0f55ad06d9c7f18ea27f688393b48b44a0fd68b6bb8b9",
+        "url": "https://api.nuget.org/v3-flatcontainer/jetbrains.rider.pathlocator/1.0.4/jetbrains.rider.pathlocator.1.0.4.nupkg",
+        "sha512": "3cd97e2e72f6f34666d64893a91b15746b72c5032e53196c0390ebc5646b8792e2325e7818d0a7e2d54adcf8793b49c9e5068a4f0fed53c6272d8e477529e868",
         "dest": "nuget-sources",
-        "dest-filename": "jetbrains.rider.pathlocator.1.0.1.nupkg"
+        "dest-filename": "jetbrains.rider.pathlocator.1.0.4.nupkg"
     },
     {
         "type": "file",
-        "url": "https://api.nuget.org/v3-flatcontainer/jetbrains.rider.pathlocator/1.0.1/jetbrains.rider.pathlocator.1.0.1.nupkg",
-        "sha512": "d3eebece09873a1feb843be41f2794666c65e8ddeac4ebff883181d1a258e5309e391e7c28ffc4b2ead0f55ad06d9c7f18ea27f688393b48b44a0fd68b6bb8b9",
+        "url": "https://api.nuget.org/v3-flatcontainer/jetbrains.rider.pathlocator/1.0.4/jetbrains.rider.pathlocator.1.0.4.nupkg",
+        "sha512": "3cd97e2e72f6f34666d64893a91b15746b72c5032e53196c0390ebc5646b8792e2325e7818d0a7e2d54adcf8793b49c9e5068a4f0fed53c6272d8e477529e868",
         "dest": "nuget-sources",
-        "dest-filename": "jetbrains.rider.pathlocator.1.0.1.nupkg"
+        "dest-filename": "jetbrains.rider.pathlocator.1.0.4.nupkg"
     },
     {
         "type": "file",

@@ -76,7 +76,7 @@ After the first C# script is created, it is necessary to click `build` within Go
 
 ## Limitations
 
-- The Mono external editor support does not work.
+- C#/.NET external editor support does not work out-of-the-box, though this is currently being discussed and worked on [here](https://github.com/flathub/org.godotengine.GodotSharp/issues/2).
 
 ## Building from source
 
@@ -87,7 +87,7 @@ then enter the following commands in a terminal:
 ```bash
 git clone --recursive https://github.com/flathub/org.godotengine.GodotSharp.git
 cd org.godotengine.GodotSharp/
-flatpak install --user flathub org.freedesktop.Sdk//22.08 org.freedesktop.Sdk.Extension.dotnet7//22.08 org.freedesktop.Sdk.Extension.openjdk11//22.08 -y
+flatpak install --user flathub org.freedesktop.Sdk//23.08 org.freedesktop.Sdk.Extension.dotnet7//23.08 org.freedesktop.Sdk.Extension.openjdk11//23.08 -y
 flatpak-builder --force-clean --install --user -y builddir org.godotengine.GodotSharp.yaml
 ```
 

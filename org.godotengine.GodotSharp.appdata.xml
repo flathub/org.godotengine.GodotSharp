@@ -21,9 +21,9 @@
     </ul>
     <p>Limitations of the Flatpak version:</p>
     <ul>
-      <li>No Mono external editor support.</li>
-      <li>External script editors are still supported (for use outside of Mono), but you need to follow the steps described here: https://github.com/flathub/org.godotengine.GodotSharp#using-an-external-script-editor</li>
-      <li>After the first C# script is created, it is necessary to click build within Godot. Alternatively, running dotnet restore in the IDE's terminal would work as well.</li>
+      <li>C#/.NET external editor support does not work out-of-the-box, though this is currently being discussed and worked on. See: https://github.com/flathub/org.godotengine.GodotSharp/issues/2</li>
+      <li>External script editors are still supported (for use outside of C#/.NET), but you need to follow the steps described here: https://github.com/flathub/org.godotengine.GodotSharp#using-an-external-script-editor</li>
+      <li>After the first C# script is created, it is necessary to click Build within Godot. Alternatively, running dotnet restore in the IDE's terminal would work as well.</li>
       <li>Godot 4's Blender importer is supported, but Blender needs to be installed on your system and you need to follow the steps described here: https://github.com/flathub/org.godotengine.GodotSharp#using-blender</li>
     </ul>
   </description>
@@ -54,6 +54,7 @@
   </screenshots>
   <content_rating type="oars-1.1" />
   <releases>
+    <release version="4.2" date="2023-11-30"/>
     <release version="4.1.3" date="2023-11-01"/>
     <release version="4.1.2" date="2023-10-04"/>
     <release version="4.1.1" date="2023-07-17"/>

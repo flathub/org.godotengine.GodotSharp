@@ -2,3 +2,4 @@
 /builddir
 /godot-*
 /__pycache__
+tmp*

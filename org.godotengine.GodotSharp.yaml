@@ -1,11 +1,11 @@
 app-id: org.godotengine.GodotSharp
 runtime: org.freedesktop.Sdk
-runtime-version: '23.08'
+runtime-version: "23.08"
 sdk: org.freedesktop.Sdk
 add-extensions:
   org.freedesktop.Sdk.Extension.openjdk17:
     directory: jdk
-    version: '23.08'
+    version: "23.08"
     no-autodownload: false
     autodelete: false
 sdk-extensions:
@@ -79,15 +79,15 @@ modules:
   - name: dotnet
     buildsystem: simple
     build-options:
-        arch:
-            x86_64:
-                env:
-                    RUNTIME: linux-x64
+      arch:
+        x86_64:
+          env:
+            RUNTIME: linux-x64
     build-commands:
       - /usr/lib/sdk/dotnet8/bin/install-sdk.sh
       - cp -r /usr/lib/sdk/dotnet8/lib/packs/ /app/lib/dotnet/
 
-  # This section is borrowed from: 
+  # This section is borrowed from:
   # https://github.com/flathub/org.electronjs.Electron2.BaseApp/blob/c4635368f6c11ace8c1290525da4435d13d9173f/org.electronjs.Electron2.BaseApp.yml#L103
   # https://github.com/flathub/net.lutris.Lutris/blob/76e94a0b80ef3ebc1b9a6b61f47d736f5ddd772c/net.lutris.Lutris.yml#L495
   # https://gitlab.archlinux.org/archlinux/packaging/packages/speech-dispatcher/-/blob/414baaf78b5fe416df88a89ac18d2dd579a0c653/PKGBUILD
@@ -140,11 +140,17 @@ modules:
 
   - name: scons
     buildsystem: simple
-    cleanup: ['*']
+    cleanup: ["*"]
+
     sources:
       - type: archive
-        sha256: 3d43b2303a924816ea0e1b345ff04c9b3e27b53eadf0f26012fc0c29b019685f
-        url: https://downloads.sourceforge.net/project/scons/scons/4.4.0/SCons-4.4.0.tar.gz
+        sha256: 6e928fc97984e719814270f6863f2183b3b72180b0162a5ed09db68c9994100c
+        url: https://downloads.sourceforge.net/project/scons/scons/4.8.0/SCons-4.8.0.tar.gz
+        x-checker-data:
+          type: anitya
+          project-id: 4770
+          url-template: https://downloads.sourceforge.net/project/scons/scons/$version/SCons-$version.tar.gz
+
     build-commands:
       - pip3 install --no-index --no-build-isolation --prefix=/app .
 

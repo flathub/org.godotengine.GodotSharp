@@ -41,8 +41,6 @@ build-options:
     SCONS_FLAGS: >
       platform=linuxbsd
       CCFLAGS=-I/app/include
-      prefix=/app
-      unix_global_settings_path=/app
       progress=no
       builtin_freetype=no
       builtin_graphite=no

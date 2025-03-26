@@ -1,11 +1,11 @@
 app-id: org.godotengine.GodotSharp
 runtime: org.freedesktop.Sdk
-runtime-version: "23.08"
+runtime-version: '23.08'
 sdk: org.freedesktop.Sdk
 add-extensions:
   org.freedesktop.Sdk.Extension.openjdk17:
     directory: jdk
-    version: "23.08"
+    version: '23.08'
     no-autodownload: false
     autodelete: false
 sdk-extensions:
@@ -30,9 +30,9 @@ build-options:
     # Will be appended to the version string displayed in the editor and command-line help
     BUILD_NAME: flathub
 
-    DOTNET_CLI_TELEMETRY_OPTOUT: True
+    DOTNET_CLI_TELEMETRY_OPTOUT: true
 
-    DOTNET_NOLOGO: True
+    DOTNET_NOLOGO: true
 
     DOTNET_ROOT: /usr/lib/sdk/dotnet8/lib
 
@@ -105,14 +105,14 @@ modules:
     post-install:
       - cd ./src/api/c && make install
     cleanup:
-      - "*.la"
-      - "*.a"
+      - '*.la'
+      - '*.a'
       - /include
 
     sources:
       - type: archive
-        url: https://github.com/brailcom/speechd/releases/download/0.11.5/speech-dispatcher-0.11.5.tar.gz
-        sha512: d6d880bce0ae5bc2a5d519ef7740c689ae8b4b0bb658379762810e4beae3e465a429fbe19f7c490e89db0ea6a36aedd4b2287ac9251b90059b5c2cb3c0dd8a28
+        url: https://github.com/brailcom/speechd/releases/download/0.12.0/speech-dispatcher-0.12.0.tar.gz
+        sha512: 684472c9410ca42f28873054613934ad93525aa5526b788dc4c2bba861aa6cb675826b9fc5083e013d25e0f23fe113691e11aa7aa9b1cebdca72abfa6119940c
         x-checker-data:
           type: anitya
           project-id: 13411
@@ -137,11 +137,11 @@ modules:
               - autoreconf -fiv
             dest-filename: autogen.sh
         cleanup:
-          - "*"
+          - '*'
 
   - name: scons
     buildsystem: simple
-    cleanup: ["*"]
+    cleanup: ['*']
 
     sources:
       - type: archive
@@ -186,13 +186,16 @@ modules:
       - cp nuget-source.config modules/mono/glue/GodotSharp/nuget.config
       - cp nuget-source.config modules/mono/editor/GodotTools/nuget.config
       - cp nuget-source.config modules/mono/editor/Godot.NET.Sdk/nuget.config
-      - python3 /app/bin/scons $SCONS_FLAGS $SCONS_FLAGS_EXTRA target=editor precision=single module_mono_enabled=yes -j "$FLATPAK_BUILDER_N_JOBS"
+      - python3 /app/bin/scons $SCONS_FLAGS $SCONS_FLAGS_EXTRA target=editor precision=single
+        module_mono_enabled=yes -j "$FLATPAK_BUILDER_N_JOBS"
       - bin/godot.* --display-driver headless --generate-mono-glue modules/mono/glue
-      - modules/mono/build_scripts/build_assemblies.py --godot-output-dir bin --godot-platform=linuxbsd --precision=single
+      - modules/mono/build_scripts/build_assemblies.py --godot-output-dir bin --godot-platform=linuxbsd
+        --precision=single
       - install -D -m755 bin/godot.* /app/bin/godot-bin
       - cp -r bin/GodotSharp /app/bin/GodotSharp
       - install -D -m755 godot.sh /app/bin/godot
-      - desktop-file-edit --set-name="Godot Engine (C#/.NET)" --set-icon=$FLATPAK_ID misc/dist/linux/org.godotengine.Godot.desktop
+      - desktop-file-edit --set-name="Godot Engine (C#/.NET)" --set-icon=$FLATPAK_ID
+        misc/dist/linux/org.godotengine.Godot.desktop
       - install -Dm644 misc/dist/linux/org.godotengine.Godot.desktop /app/share/applications/$FLATPAK_ID.desktop
       - install -Dm644 misc/dist/linux/org.godotengine.Godot.xml /app/share/mime/packages/$FLATPAK_ID.xml
       - install -Dm644 $FLATPAK_ID.appdata.xml /app/share/appdata/$FLATPAK_ID.appdata.xml

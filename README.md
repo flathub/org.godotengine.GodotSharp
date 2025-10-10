@@ -8,6 +8,7 @@ After following the [Flatpak setup guide](https://flatpak.org/setup/),
 you can install it by entering the following command in a terminal:
 
 ```bash
+#!/usr/bin/env sh
 flatpak install --user flathub org.godotengine.GodotSharp -y
 ```
 
@@ -23,6 +24,7 @@ This Flatpak follows the latest stable Godot version.
 To update it, run the following command in a terminal:
 
 ```bash
+#!/usr/bin/env sh
 flatpak update
 ```
 
@@ -35,16 +37,14 @@ Godot expects the Blender executable to be named `blender` (lowercase), so a scr
 ### Bash script assuming Blender is installed in `PATH` (e.g. using distribution packages)
 
 ```bash
-#!/bin/bash
-
+#!/usr/bin/env bash
 flatpak-spawn --host blender "$@"
 ```
 
 ### Bash script assuming Blender is installed from Flathub
 
 ```bash
-#!/bin/bash
-
+#!/usr/bin/env bash
 flatpak-spawn --host flatpak run org.blender.Blender "$@"
 ```
 
@@ -58,14 +58,14 @@ To spawn an external editor in Godot, all command line arguments must be split f
 
 For example, for Visual Studio Code, where your [external editor preferences](https://docs.godotengine.org/en/3.2/getting_started/editor/external_editor.html) would *normally* look like this...
 
-```text
+```YAML
 Exec Path:  code
 Exec Flags: --reuse-window {project} --goto {file}:{line}:{col}
 ```
 
 ...it should look like this **inside the Flatpak sandbox**:
 
-```text
+```YAML
 Exec Path:  flatpak-spawn
 Exec Flags: --host code --reuse-window {project} --goto {file}:{line}:{col}
 ```
@@ -85,6 +85,7 @@ Install Git, follow the
 then enter the following commands in a terminal:
 
 ```bash
+#!/usr/bin/env sh
 git clone --recursive https://github.com/flathub/org.godotengine.GodotSharp.git
 cd org.godotengine.GodotSharp/
 flatpak install --user flathub org.freedesktop.Sdk//23.08 org.freedesktop.Sdk.Extension.dotnet8//23.08 org.freedesktop.Sdk.Extension.openjdk11//23.08 -y
@@ -102,6 +103,7 @@ and specifying `--ccache` in the flatpak-builder command line (before `builddir`
 For updating this Flatpak to newer versions of Godot, the source code of Godot for that version must be downloaded and extracted to some location. The path to it must be updated within the `generate_sources.py` script. It is also necessary to run `generate_sources.py` in the following way:
 
 ```
+#!/usr/bin/env sh
 python3 generate_sources.py
 ```
 

@@ -9,7 +9,7 @@ you can install it by entering the following command in a terminal:
 
 ```bash
 #!/usr/bin/env sh
-flatpak install --user flathub org.godotengine.GodotSharp -y
+flatpak install flathub org.godotengine.GodotSharp -y
 ```
 
 Once the Flatpak is installed, you can run Godot using your desktop environment's
@@ -88,8 +88,8 @@ then enter the following commands in a terminal:
 #!/usr/bin/env sh
 git clone --recursive https://github.com/flathub/org.godotengine.GodotSharp.git
 cd org.godotengine.GodotSharp/
-flatpak install --user flathub org.freedesktop.Sdk//23.08 org.freedesktop.Sdk.Extension.dotnet8//23.08 org.freedesktop.Sdk.Extension.openjdk11//23.08 -y
-flatpak-builder --force-clean --install --user -y builddir org.godotengine.GodotSharp.yaml
+flatpak install flathub org.freedesktop.Sdk//23.08 org.freedesktop.Sdk.Extension.dotnet8//23.08 org.freedesktop.Sdk.Extension.openjdk11//23.08 -y
+flatpak-builder --force-clean --install -y builddir org.godotengine.GodotSharp.yaml
 ```
 
 If all goes well, the Flatpak will be installed after building. You can then

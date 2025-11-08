@@ -1,11 +1,11 @@
 app-id: org.godotengine.GodotSharp
 runtime: org.freedesktop.Sdk
-runtime-version: "23.08"
+runtime-version: "25.08"
 sdk: org.freedesktop.Sdk
 add-extensions:
   org.freedesktop.Sdk.Extension.openjdk17:
     directory: jdk
-    version: "23.08"
+    version: "25.08"
     no-autodownload: false
     autodelete: false
 sdk-extensions:
@@ -19,6 +19,11 @@ build-options:
         # Only enable link-time optimization when targeting x86_64
         # (causes issues on other architectures)
         SCONS_FLAGS_EXTRA: use_lto=yes
+    aarch64:
+      env:
+        # Optimizations for aarch64 to reduce build time
+        # Disable features that might slow down compilation
+        SCONS_FLAGS_EXTRA: debug_symbols=no
 
   append-path: /usr/lib/sdk/dotnet8/bin
 
@@ -111,8 +116,8 @@ modules:
 
     sources:
       - type: archive
-        url: https://github.com/brailcom/speechd/releases/download/0.11.5/speech-dispatcher-0.11.5.tar.gz
-        sha512: d6d880bce0ae5bc2a5d519ef7740c689ae8b4b0bb658379762810e4beae3e465a429fbe19f7c490e89db0ea6a36aedd4b2287ac9251b90059b5c2cb3c0dd8a28
+        url: https://github.com/brailcom/speechd/releases/download/0.12.1/speech-dispatcher-0.12.1.tar.gz
+        sha512: f386bb25d80e85153db4907c5adece519a86084676a39f958a4f56e53bb957cb9b1232c4e648e73ef8dc5d1ab8e0cd64a5e0d151775fdd8f3b175f47f4864422
         x-checker-data:
           type: anitya
           project-id: 13411
@@ -145,8 +150,8 @@ modules:
 
     sources:
       - type: archive
-        sha256: 6e928fc97984e719814270f6863f2183b3b72180b0162a5ed09db68c9994100c
-        url: https://downloads.sourceforge.net/project/scons/scons/4.8.0/SCons-4.8.0.tar.gz
+        sha256: e2d78aa56e4646e5dbaf50c0758c6d1e4b0418464d8d6d07a09beb6cf257538f
+        url: https://downloads.sourceforge.net/project/scons/scons/4.9.1/SCons-4.9.1.tar.gz
         x-checker-data:
           type: anitya
           project-id: 4770
@@ -159,8 +164,12 @@ modules:
     buildsystem: simple
     sources:
       - type: archive
-        sha256: 751e55bfad8e04b846f9cf7b6eb80e058986a2cb1b103fc0fe6a4d8526a20e56
-        url: https://github.com/godotengine/godot-builds/releases/download/4.3-stable/godot-4.3-stable.tar.xz
+        sha256: 559e11bdd85033640d49db67baa6f15be1128b2af38a5acc06e02b53363d8dde
+        url: https://github.com/godotengine/godot/releases/download/4.5.1-stable/godot-4.5.1-stable.tar.xz
+        x-checker-data:
+          type: anitya
+          project-id: 373975
+          url-template: https://github.com/godotengine/godot/releases/download/$version-stable/godot-$version-stable.tar.xz
 
       - type: script
         dest-filename: godot.sh
@@ -174,15 +183,18 @@ modules:
       - type: file
         path: org.godotengine.GodotSharp.appdata.xml
       - type: file
+        url: https://www.nuget.org/api/v2/package/Microsoft.Build.NoTargets/3.7.134
+        sha512: 99aadba322e52489af0b1819d4def14804b87042104e436e71a6e22905ce26cdb357decda6128c58ef462fcbfcfebc17c8982d5aa83366184c4a0e7596e207cc
+        dest: nuget-sources
+        dest-filename: microsoft.build.notargets.3.7.134.nupkg
+      - type: file
         path: nuget/nuget-source.config
       - type: file
-        url: https://www.nuget.org/api/v2/package/Microsoft.Build.NoTargets/2.0.1
-        sha512: 19fd7d616993d12d633674fe1e9779eab0aa40aa21eec412561e28e8a7e2de3bae8d9fef9595257134d73f33a9dea9ee0e4ebbafbd32525c123320c1eb5bf160
         dest: nuget-sources
-        dest-filename: microsoft.build.notargets.2.0.1.nupkg
-      - nuget/nuget-sources.json
+        path: nuget/nuget-sources.json
 
     build-commands:
+      - ls nuget-sources
       - cp nuget-source.config modules/mono/glue/GodotSharp/nuget.config
       - cp nuget-source.config modules/mono/editor/GodotTools/nuget.config
       - cp nuget-source.config modules/mono/editor/Godot.NET.Sdk/nuget.config

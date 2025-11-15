@@ -41,13 +41,16 @@ def main():
                 url = 'https://api.nuget.org/v3-flatcontainer/{}/{}/{}'.format(name, version, filename)
                 with path.open() as fp:
                     sha512 = binascii.hexlify(base64.b64decode(fp.read())).decode('ascii')
-                    sources.append({
-                        'type': 'file',
-                        'url': url,
-                        'sha512': sha512,
-                        'dest': "nuget-sources",
-                        'dest-filename': filename,
-                    })
+                    source = {
+                         'type': 'file',
+                         'url': url,
+                         'sha512': sha512,
+                         'dest': "nuget-sources",
+                         'dest-filename': filename,
+                    }
+                    # Prevent duplicates by only adding source if not already in sources list.
+                    if( source not in sources ):
+                        sources.append(source)
 
     # Save the sources into a JSON file
     with open('nuget/nuget-sources.json', 'w') as fp:
